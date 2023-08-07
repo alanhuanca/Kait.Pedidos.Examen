@@ -17,6 +17,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaits.Dominio", "Kaits.Domi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaits.Aplicacion", "Kaits.Aplicacion\Kaits.Aplicacion.csproj", "{2383CE31-1371-409A-8CA2-D3E2449158AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScritBD", "ScritBD", "{02C540E1-2709-4578-B18D-55FA4F54D4AB}"
+	ProjectSection(SolutionItems) = preProject
+		..\Script BD\Kait.Scripts\Kait.Scripts\01_BD.sql = ..\Script BD\Kait.Scripts\Kait.Scripts\01_BD.sql
+		..\Script BD\Kait.Scripts\Kait.Scripts\02_MD.sql = ..\Script BD\Kait.Scripts\Kait.Scripts\02_MD.sql
+		..\Script BD\Kait.Scripts\Kait.Scripts\03_SP.sql = ..\Script BD\Kait.Scripts\Kait.Scripts\03_SP.sql
+		..\Script BD\Kait.Scripts\Kait.Scripts\04_FN.sql = ..\Script BD\Kait.Scripts\Kait.Scripts\04_FN.sql
+		..\Script BD\Kait.Scripts\Kait.Scripts\05_DT.sql = ..\Script BD\Kait.Scripts\Kait.Scripts\05_DT.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
