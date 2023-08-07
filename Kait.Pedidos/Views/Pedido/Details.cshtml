@@ -1,0 +1,116 @@
+﻿@model Kaits.Dominio.Pedido
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle de pedido</h2>
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaOrden)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaOrden)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAuditoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAuditoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioAuditoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioAuditoria)
+        </dd>
+
+
+
+    </dl>
+    <hr />
+    <div class="row">
+
+        <table class="table table-responsive-lg">
+            <thead>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.detalle[0].idProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.detalle[0].DescripcionProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.detalle[0].Cantidad)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.detalle[0].PrecioUnitario)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.detalle[0].SubTotal)
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.detalle)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idProducto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DescripcionProducto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cantidad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrecioUnitario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubTotal)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+<p> 
+    @Html.ActionLink("Regresar", "Index")
+</p>

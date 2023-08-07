@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Kaits.Dominio.Pedido>
+@{
+    ViewBag.Title = "Pedidos";
+}
+
+<h2>Lista de pedidos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo pedido", "Create")
+</p>
+<table class="table" id="tpedidos">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idPedido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaOrden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAuditoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioAuditoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idPedido)
+                </td>
+                <td>
+                    @{
+                        string fechaOrden = item.FechaOrden.ToString("dd/MM/yyyy");
+                    }
+                    @Html.DisplayFor(modelItem => @fechaOrden)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreApellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaAuditoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioAuditoria)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalle", "Details", new { id = item.idPedido }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idPedido })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot></tfoot>
+</table>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#tpedidos').DataTable({
+                pageLength: 5,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy' },
+                    { extend: 'csv' },
+                    { extend: 'excel', title: 'ExampleFile' },
+                    { extend: 'pdf', title: 'ExampleFile' },
+
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+
+            });
+
+
+
+        });
+
+    </script>
+
+}
